@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ItemListPage } from '../item-list/item-list';
+import _ from 'lodash';
 
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+interface People{
+  age?: number;
+}
 
 @IonicPage()
 @Component({
@@ -15,11 +14,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
+  private peopleNum: number;
+  private peoples: any[];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
   }
-
+  changeNum(peopleNum) {
+    if (peopleNum) {
+      this.peoples = _.range(peopleNum).map(() => (<People>{}));
+    }
+  }
+  save() {
+    this.navCtrl.setRoot(ItemListPage);
+  }
 }
