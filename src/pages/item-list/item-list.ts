@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TyphoonInfoPage } from '../typhoon-info/typhoon-info';
+import _ from 'lodash';
 
-/**
- * Generated class for the ItemListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+interface Item{
+  name: string;
+  checked: boolean;
+}
 
 @IonicPage()
 @Component({
@@ -15,6 +15,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ItemListPage {
 
+  public items: Item[] = [];
+  public temp: Item = { name: null, checked: false };
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -22,4 +24,16 @@ export class ItemListPage {
     console.log('ionViewDidLoad ItemListPage');
   }
 
+  insertItem(item) {
+    this.items.push(item);
+    this.temp = { name: null, checked: false };
+  }
+
+  removeItem(item) {
+    this.items = _.filter(this.items, (i) => i !== item);
+  }
+
+  save() {
+    this.navCtrl.setRoot(TyphoonInfoPage);
+  }
 }
