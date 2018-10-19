@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { ProfilePage } from '../pages/profile/profile';
 import { ItemListPage } from '../pages/item-list/item-list';
 import { TyphoonInfoPage } from '../pages/typhoon-info/typhoon-info';
+import { TyphoonHistPage } from '../pages/typhoon-hist/typhoon-hist';
 import { ShelterPage } from '../pages/shelter/shelter';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -21,6 +22,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProfilePage,
     ItemListPage,
     TyphoonInfoPage,
+    TyphoonHistPage,
     ShelterPage
   ],
   imports: [
@@ -35,6 +37,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProfilePage,
     ItemListPage,
     TyphoonInfoPage,
+    TyphoonHistPage,
     ShelterPage
   ],
   providers: [

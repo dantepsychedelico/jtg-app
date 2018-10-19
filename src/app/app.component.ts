@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { ProfilePage } from '../pages/profile/profile';
 import { ItemListPage } from '../pages/item-list/item-list';
 import { TyphoonInfoPage } from '../pages/typhoon-info/typhoon-info';
+import { TyphoonHistPage } from '../pages/typhoon-hist/typhoon-hist';
 import { ShelterPage } from '../pages/shelter/shelter';
 
 @Component({
@@ -28,9 +29,9 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: '個人資訊', component: ProfilePage },
       { title: '物品清單', component: ItemListPage },
-      { title: '颱風資訊', component: TyphoonInfoPage },
-      { title: '避難點', component: ShelterPage },
-      { title: 'List', component: ListPage }
+      { title: '當前', component: TyphoonInfoPage },
+      { title: '歷史', component: TyphoonHistPage },
+      { title: '避難點', component: ShelterPage }
     ];
 
   }
