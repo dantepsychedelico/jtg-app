@@ -1,0 +1,7 @@
+{
+  "name": "jtg-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
