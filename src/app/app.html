@@ -16,19 +16,14 @@
       <button menuClose ion-item (click)="openPage(pages[2])">
         {{pages[2].title}}
       </button>
-      <ion-item-group>
-        <ion-item-divider>
-          颱風資訊
-        </ion-item-divider>
-        <button menuClose ion-item (click)="openPage(pages[3])">
-          {{pages[3].title}}
-        </button>
-        <button menuClose ion-item (click)="openPage(pages[4])">
-          {{pages[4].title}}
-        </button>
-      </ion-item-group>
+      <button menuClose ion-item (click)="openPage(pages[3])"> 
+        {{pages[3].title}}
+      </button>
       <button menuClose ion-item (click)="openPage(pages[5])">
         {{pages[5].title}}
+      </button>
+      <button menuClose ion-item (click)="clearData()">
+        Reset
       </button>
     </ion-list>
   </ion-content>

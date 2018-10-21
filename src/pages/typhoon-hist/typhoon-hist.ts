@@ -19,6 +19,7 @@ export class TyphoonHistPage {
   }
 
   ionViewDidLoad() {
+    localStorage.clear();
     console.log('ionViewDidLoad TyphoonHistPage');
   }
 

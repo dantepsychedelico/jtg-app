@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -13,6 +14,10 @@ import { ShelterPage } from '../pages/shelter/shelter';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Geolocation } from '@ionic-native/geolocation';
+import { Camera } from '@ionic-native/camera';
+// import { PhotoLibrary } from '@ionic-native/photo-library';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -23,11 +28,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ItemListPage,
     TyphoonInfoPage,
     TyphoonHistPage,
-    ShelterPage
+    ShelterPage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule,
+    AgmCoreModule.forRoot({ 
+      apiKey: 'AIzaSyA-q521HE6354dNjvRgqjBR_DjtwJm7rOE'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -43,7 +52,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Geolocation,
+    Camera
+//     PhotoLibrary
   ]
 })
 export class AppModule {}

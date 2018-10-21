@@ -27,11 +27,11 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: '個人資訊', component: ProfilePage },
-      { title: '物品清單', component: ItemListPage },
-      { title: '當前', component: TyphoonInfoPage },
+      { title: 'Personal Info', component: ProfilePage },
+      { title: 'Item List', component: ItemListPage },
+      { title: 'Realtime Info', component: TyphoonInfoPage },
       { title: '歷史', component: TyphoonHistPage },
-      { title: '避難點', component: ShelterPage }
+      { title: 'Shelter Info', component: ShelterPage }
     ];
 
   }
@@ -49,5 +49,8 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+  clearData() {
+    localStorage.clear();
   }
 }

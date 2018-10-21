@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>物品清單</ion-title>
+    <ion-title>Item List</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,7 +11,7 @@
 <ion-content>
   <ion-list>
     <ion-item>
-      <ion-label floating>物品名稱</ion-label>
+      <ion-label floating>Item Name</ion-label>
       <ion-input type="text" [(ngModel)]="temp.name" (keyup.enter)="insertItem(temp)"></ion-input>
     </ion-item>
     <ion-item-sliding *ngFor="let item of items">
@@ -28,6 +28,6 @@
     </ion-item-sliding>
   </ion-list>
   <div padding> 
-    <button ion-button color="primary" block (click)="save()">確認</button> 
+    <button ion-button color="primary" block (click)="save()">Confirm</button> 
   </div>
 </ion-content>

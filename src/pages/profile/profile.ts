@@ -4,7 +4,7 @@ import { ItemListPage } from '../item-list/item-list';
 import _ from 'lodash';
 
 interface People{
-  age?: number;
+  age?: string;
 }
 
 @IonicPage()
@@ -15,7 +15,7 @@ interface People{
 export class ProfilePage {
 
   private peopleNum: number;
-  private peoples: any[];
+  private peoples: People[];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -28,6 +28,7 @@ export class ProfilePage {
     }
   }
   save() {
+    localStorage.setItem('hasChildren', _.find(this.peoples, { age: '1' })? 'true' : 'false')
     this.navCtrl.setRoot(ItemListPage);
   }
 }

@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>個人資訊</ion-title>
+    <ion-title>Personal Info</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,28 +11,28 @@
 <ion-content>
   <ion-list>
     <ion-item>
-      <ion-label floating>姓名</ion-label>
+      <ion-label floating>Full Name</ion-label>
       <ion-input type="text" [(ngModel)]="name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>電話</ion-label>
+      <ion-label floating>Telephone</ion-label>
       <ion-input type="tel" [(ngModel)]="phone"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>家中成員人數</ion-label>
+      <ion-label>Family Size</ion-label>
       <ion-input type="number" [(ngModel)]="peopleNum" (ngModelChange)="changeNum(peopleNum)"></ion-input>
     </ion-item>
     <ion-item *ngFor="let people of peoples">
       <ion-select [(ngModel)]="people.age">
-        <ion-option value="1">未滿5歲</ion-option>
-        <ion-option value="2">6～10歲</ion-option>
-        <ion-option value="3">11～30歲</ion-option>
-        <ion-option value="4">31～60歲</ion-option>
-        <ion-option value="5">61歲以上</ion-option>
+        <ion-option value="1">Less than 5 years old</ion-option>
+        <ion-option value="2">6～10 years old</ion-option>
+        <ion-option value="3">11～30 years old</ion-option>
+        <ion-option value="4">31～60 years old</ion-option>
+        <ion-option value="5">Greater than 61 years old</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
   <div padding> 
-    <button ion-button color="primary" block (click)="save()">確認</button> 
+    <button ion-button color="primary" block (click)="save()">Confirm</button> 
   </div>
 </ion-content>

@@ -3,11 +3,60 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>當前颱風資訊</ion-title>
+    <ion-title>Realtime Info</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-card *ngIf="typhoon">
+    <ion-card-content>
+      <ion-card-title style="font-size: 35pt; font-weight: bold; font-family: impact, Charocal, sans-serif; ">{{typhoon.name}}</ion-card-title>
+    </ion-card-content>
+    <ion-list style="padding-left: 18px; margin-top: -25px; padding-bottom: 5px;">
+      <ion-icon>
+        Wind Speed: <span style="font-size: 30pt; font-family: comic sans ms; font-weight: bold; color: #e13838; font-style: italic;">{{typhoon.wind}}</span> kt
+      </ion-icon> 
+      <ion-icon>
+        Update Time: <span style="font-style: italic;">{{typhoon.time}}</span>
+      </ion-icon> 
+    </ion-list>
+    <img src="{{typhoon.image}}"/>
+  </ion-card>
+  <agm-map [latitude]="lat" [longitude]="lon" [zoom]="zoom"
+    [streetViewControl]="false"
+    style="width: 100%; height: 300px;" *ngIf="typhoon">
+    <agm-marker [latitude]="typhoon.lat" [longitude]="typhoon.lon" [iconUrl]="iconImg">
+    </agm-marker>
+    <agm-marker *ngFor="let ri of ris" [latitude]="ri.lat" [longitude]="ri.lon" [iconUrl]="dangerImg">
+    </agm-marker>
+  </agm-map>
+  <ion-list> 
+    <ion-item *ngFor="let ri of ris" (click)="center(ri)">
+      <ion-thumbnail item-start> 
+        <img [src]="'data:image/jpeg;base64,'+ri.img"/>
+      </ion-thumbnail> 
+      <h2>{{ ri.desc }}</h2> 
+      <p>{{ri.create_ts | date: 'short'}}</p>
+    </ion-item>
+  </ion-list>
+  <ion-card>
+    <ion-card-header>
+      Disater Report
+    </ion-card-header>
+    <div padding text-center> 
+      <button ion-button color="danger" (click)="openCamera()" text-center>
+        <ion-icon name="camera"></ion-icon>
+      </button> 
+    </div>
+    <ion-item> 
+      <ion-textarea placeholder="Enter a description" [(ngModel)]="tempDesc"></ion-textarea> 
+    </ion-item>
+    <img [src]="'data:image/jpeg;base64,'+tempImg" *ngIf="tempImg" />
+    <div padding *ngIf="tempImg">
+      <button ion-button color="danger" block (click)="report()">
+        Report
+      </button> 
+    </div>
+  </ion-card>
 </ion-content>
