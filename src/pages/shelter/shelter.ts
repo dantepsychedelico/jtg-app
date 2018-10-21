@@ -50,21 +50,21 @@ export class ShelterPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private http: HttpClient, private geolocation: Geolocation
   ) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ShelterPage');
     this.geolocation.getCurrentPosition()
       .then((pos) => {
+        this.lat = pos.coords.latitude;
+        this.lon = pos.coords.longitude;
         this.pos = pos;
-        this.lat = this.pos.coords.latitude;
-        this.lon = this.pos.coords.longitude;
       })
       .catch((err) => {
         console.log(err);
       });
     this.getReport();
     this.getShelter();
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ShelterPage');
   }
 
   getReport() {
